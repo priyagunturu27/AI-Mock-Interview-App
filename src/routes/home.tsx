@@ -3,7 +3,6 @@ import { MarqueImg } from '@/components/marquee-img'
 import { Button } from '@/components/ui/button'
 import { Sparkles } from 'lucide-react'
 import Marquee from 'react-fast-marquee'
-import marquee from 'react-fast-marquee'
 import { Link } from 'react-router-dom'
 const Homepage = () => {
 	return (
@@ -42,6 +41,7 @@ const Homepage = () => {
 						</span>
 					</p>
 				</div>
+
 				<div className='w-full mt-4 rounded-xl bg-gray-100 h-[420px] drop-shadow-md overflow-hidden relative'>
 					<img
 						src='assets/img/hero.jpg'

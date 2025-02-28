@@ -17,8 +17,8 @@ const Header = () => {
 				<div className='flex items-center  w-full'>
 					{/* logo */}
 					<LogoContainer />
-					{/* navigation */}
 
+					{/* navigation */}
 					<nav className='hidden md:flex items-center gap-6'>
 						<NavigationRoutes />
 						{userId && (
