@@ -5,7 +5,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { Interview } from '@/types'
 import CustomBreadCrumb from './custom-bread-crumb'
 import { useEffect, useState } from 'react'
-import { replace, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@clerk/clerk-react'
 import { toast } from 'sonner'
 import Headings from './headings'
@@ -21,7 +21,7 @@ import {
 } from './ui/form'
 import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
-import { chatSession } from '@/scripts'
+
 import {
 	addDoc,
 	collection,
@@ -30,6 +30,7 @@ import {
 	updateDoc,
 } from 'firebase/firestore'
 import { db } from '@/config/firebase.config'
+import { chatSession } from '@/scripts'
 
 interface FormMockInterviewProps {
 	initialData: Interview | null
@@ -47,10 +48,10 @@ const formSchema = z.object({
 	techStack: z.string().min(1, 'Tech stack must be at least a character'),
 })
 
-type formData = z.infer<typeof formSchema>
+type FormData = z.infer<typeof formSchema>
 
 const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
-	const form = useForm<formData>({
+	const form = useForm<FormData>({
 		resolver: zodResolver(formSchema),
 		defaultValues: initialData || {},
 	})
@@ -95,7 +96,7 @@ const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
 		}
 	}
 
-	const generateAiResult = async (data: formData) => {
+	const generateAiResult = async (data: FormData) => {
 		const prompt = `
             As an experienced prompt engineer, generate a JSON array containing 5 technical interview questions along with detailed answers based on the following job information. Each object in the array should have the fields "question" and "answer", formatted as follows:
 
