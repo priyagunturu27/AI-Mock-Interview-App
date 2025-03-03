@@ -14,7 +14,7 @@ import {
 import { Badge } from './ui/badge'
 import { cn } from '@/lib/utils'
 import { TooltipButton } from './toolTip-button'
-import { Eye, Newspaper, Pencil, Sparkles, Trash2 } from 'lucide-react'
+import { Eye, Newspaper, Sparkles } from 'lucide-react'
 
 interface InterviewPinProps {
 	interview: Interview
